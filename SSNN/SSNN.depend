@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1674048411 source:d:\b2\c++\ssnn\src\drive.cpp
+	<iostream>
+	<windows.h>
+	<filesystem>
+	<fstream>
+	<string>
+	"Drive.h"
+
+1674031248 d:\b2\c++\ssnn\include\drive.h
+	<windows.h>
+	<string>
+
+1674031128 source:d:\b2\c++\ssnn\src\note.cpp
+	"Note.h"
+
+1674031128 d:\b2\c++\ssnn\include\note.h
+
+1674031387 source:d:\b2\c++\ssnn\main.cpp
+	<iostream>
+	<filesystem>
+	<string>
+	"Drive.h"
+	<tchar.h>
+	<unistd.h>
+	<cstdlib>
+	<sys/types.h>
+	<sys/stat.h>
+	<strsafe.h>
+	"source.h"
+	<windows.h>
+
+1674031378 d:\b2\c++\ssnn\source.h
+
+1674032941 source:d:\b2\c++\ssnn\src\config.cpp
+	"Config.h"
+
+1674032941 d:\b2\c++\ssnn\include\config.h
+
