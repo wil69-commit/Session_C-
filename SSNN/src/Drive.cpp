@@ -4,7 +4,7 @@
 #include <fstream>
 #include <string>
 #include "Drive.h"
-
+#include<vector>
 using namespace std;
 namespace fs = std::filesystem;
 Drive::Drive()
@@ -56,12 +56,14 @@ void Drive::wait(){
 
 void Drive::sync(char usb){// on a une methode sync qui recuperer le nom de la cle et fi
     string filename(1, usb);
+
     filename += ":\\keyce_drive";
     cout << filename;
+    cout<<filename<<endl;
     if(filesystem::is_directory(filename)){ // filesystem::is_directory nous permet de lister les fichiers present dans un repertoire en donnant (filename) on recherche un fichier precis
-        for(const auto & entry : filesystem::directory_iterator(filename)){
+        for(const auto & dir_entry : fs::recursive_directory_iterator(filename)){
 //            cout << entry.path() << endl;
-            kCopy(entry.path().string(), entry.path().filename().string());
+            kCopy(dir_entry.path().string(), dir_entry.path().filename().string());
         }
     }
 }
@@ -70,9 +72,8 @@ void Drive::kCopy(string file, string name){
     cout << file;
     ofstream ofile ("C:\\Users\\Wil\\Desktop\\keyce\\"+ name, std::ios_base::binary);//on se dirige ves l'emplacement
     ifstream sfile (file, std::ios_base::binary);// on recupaire le fichier avec le nom qu'on a donner et on le convertie en binaire
-    ofile<<sfile.rdbuf();
     char buffer[1024];// en 64 bit
-    while(sfile.read(buffer, sizeof(buffer))){ //w
+    while(sfile.read(buffer, sizeof(buffer))){//w
         ofile.write(buffer, sfile.gcount());
     }
 //    ofile.write(buffer, sfile.gcount());

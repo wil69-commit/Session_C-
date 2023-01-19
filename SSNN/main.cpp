@@ -2,6 +2,7 @@
 #include <filesystem>
 #include <string>
 #include "Drive.h"
+#include "Config.h"
 //#include "notif.h"
 
 #include <tchar.h>
@@ -12,6 +13,7 @@
 #include <strsafe.h>
 #include "source.h"
 #define UNICODE
+#include "Config.h"
 #include <windows.h>
 
 
@@ -76,9 +78,12 @@ using namespace std;
 
 int main()
 {
+    Config c;
+    c.readFiles();
     Drive d;
     d.detect();
 //    d.sync('G');
     notif();
+
     return 0;
 }
